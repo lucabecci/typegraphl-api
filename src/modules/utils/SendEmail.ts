@@ -1,7 +1,6 @@
-import nodemailer from"nodemailer"
+import nodemailer from "nodemailer";
 
 export async function sendEmail(email: string, url: string) {
-
   const testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
@@ -11,7 +10,7 @@ export async function sendEmail(email: string, url: string) {
     secure: false, // true for 465, false for other ports
     auth: {
       user: testAccount.user,
-      pass: testAccount.pass, 
+      pass: testAccount.pass,
     },
   });
 
@@ -30,4 +29,3 @@ export async function sendEmail(email: string, url: string) {
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
-

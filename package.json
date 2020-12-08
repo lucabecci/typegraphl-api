@@ -34,19 +34,25 @@
     "@types/express-session": "^1.17.3",
     "@types/graphql": "^14.5.0",
     "@types/ioredis": "^4.17.8",
+    "@types/jest": "^26.0.16",
     "@types/node": "^14.14.10",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
     "ts-node": "^9.1.0",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.1.2"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "build": "tsc",
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "start:build": "tsc",
+    "start:prod": "node dist/index.js",
+    "start:dev": "ts-node-dev --respawn src/index.ts",
+    "db:setup": "ts-node ./src/test-utils/setup.ts",
+    "test": "npm run db:setup && jest"
   },
   "husky": {
     "hooks": {
